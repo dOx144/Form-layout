@@ -34,9 +34,9 @@
             </div>
             <div class="input-box">
               <span class="icon">
-                <i class="fa-sharp fa-solid fa-lock"></i></span>
-              <input type="password" required />
-              <label for="Password">Password</label>
+                <i class="fa-sharp fa-solid fa-lock" onclick="view()"></i></span>
+              <input type="password" id="hide-view" required />
+              <label for="Password" >Password</label>
             </div>
             <div class="remember-forget">
               <label><input type="checkbox" />Remember me</label>
@@ -73,13 +73,13 @@
               <label for="email">Email:</label>
             </div>
             <div class="input-box">
-              <span class="icon"><i class="fa-solid fa-eye"></i></span>
-              <input type="Password" required />
+              <span class="icon"><i class="fa-solid fa-eye" onclick="viewReg()"></i></span>
+              <input type="Password" id="hide-viewReg" required />
               <label for="email" class="pass1">Password:</label>
             </div>
             <div class="input-box">
-              <span class="icon"><i class="fa-solid fa-eye"></i></span>
-              <input type="Password" required />
+              <span class="icon"><i class="fa-solid fa-eye" onclick="viewRegG()"></i></span>
+              <input type="Password" id="hide-viewRegG" required />
               <label for="email" class="pass2">Confirm Password:</label>
             </div>
             <div class="terms-updates">
@@ -156,7 +156,43 @@
      wrapper.style.scale=0;
      allInput.textContent='';
     })
+
+    let viewHide = document.getElementById('hide-view')
+    
+    function view(){
+      if(viewHide.type==='password'){
+        viewHide.setAttribute('type','text')
+      } 
+      else{
+        viewHide.setAttribute('type','password')
+      }
+    }
+
+    let viewHideReg = document.getElementById('hide-viewReg')
+    let viewHideRegG = document.getElementById('hide-viewRegG')
+
+    function viewReg(){
+      if(viewHideReg.type==='password'){
+        viewHideReg.setAttribute('type','text')
+      } 
+      else{
+        viewHideReg.setAttribute('type','password')
+      }
+    }
+    function viewRegG(){
+      if(viewHideRegG.type==='password'){
+        viewHideRegG.setAttribute('type','text')
+      } 
+      else{
+        viewHideRegG.setAttribute('type','password')
+      }
+    }
+
+
+
     toNext ()
   </script>
+
+
 
 </html>
