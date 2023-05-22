@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+p {
+  cursor: default;
+}
+
+:root {
+  --background-color: #B3BCBE;
+  --text-color: #2C2C2C;
+}
+
+body {
+  background-image: url(pexels-hasan-albari-1229861.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+i {
+  color: white;
+  padding: 5px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+header .logo {
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+header .navigation {
+  padding: 5px 10px;
+  font-size: 1.2em;
+  display: flex;
+  /* background-color: #B3BCBE; */
+  line-height: 2em;
+}
+
+.navigation a {
+  text-decoration: none;
+  margin-right: 20px;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+}
+
+.navigation a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 85%;
+  bottom: -6px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s;
+}
+
+.navigation #login-btn {
+  padding: 0 25px;
+  font-weight: 600;
+  font-size: 1.1em;
+  width: 113px;
+  border: 2px solid #f9f9f9;
+  border-radius: 3px;
+  background-color: rgb(94, 93, 91);
+  cursor: pointer;
+  color: #f1f1f1e5;
+  outline: 2px solid #525252;
+  transition: .3s;
+}
+
+.navigation #login-btn:hover {
+  background-color: #9c9c9c;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.navigation #login-btn:active {
+  color: #fff;
+  background-color: #858484;
+}
+
+.form-Register-container {
+  /* display: none; */
+}
+
+/* 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper {
+  height: 400px;
+  width: 345px;
+  background-color: #545454;
+  border-radius: 14px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.wrapper .form-login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #f1f1f1;
+  flex-direction: column;
+}
+
+.wrapper .form-login-container .login-text {
+  font-size: 3em;
+}
+
+form .input-box {
+  position: relative;
+  padding-top: 20px;
+}
+
+form .input-box label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  color: white;
+  font-weight: 500;
+  font-size: 1em;
+  transition: .3s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+  top: -1%;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  background: transparent;
+}
+
+.input-box input:focus {
+  outline: none;
+  border: none;
+}
+
+.input-box:after {
+  content: '';
+  position: absolute;
+  width: 220px;
+  top: 100%;
+  left: 0;
+  height: 2px;
+  background-color: white;
+}
+
+.remember-forget {
+  display: flex;
+  width: 220px;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.remember-forget label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .8em;
+}
+
+.remember-forget a {
+  text-decoration: none;
+  color: #ffffffb6;
+  font-size: .8em;
+}
+
+.remember-forget a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+button {
+  padding: 5px 30px;
+} */
+form .input-box span {
+  position: absolute;
+  top: 25px;
+  right: 0px;
+}
+
+form .input-box input {
+  color: #fff;
+  margin-right: 25px;
+}
+
+.wrapper {
+  height: 400px;
+  width: 345px;
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  transition: .3s;
+  position: relative;
+}
+
+.wrapper.active {
+  height: 500px;
+}
+
+.wrapper .cross {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+
+  color: white;
+  transition: .3s;
+}
+
+.wrapper .form-login-container,
+.form-Register-container {
+
+  height: 400px;
+  width: 345px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.form-login-container {
+  border-radius: 15px;
+  border: 2px solid white;
+  backdrop-filter: blur(30px);
+
+  color: #f9f9f9;
+  transition: transform .1s ease-in, opacity .3s ease-in;
+}
+
+.form-login-container:hover {
+  box-shadow: inset 0 0 0 2px #5cffe8;
+}
+
+.form-login-container.inactive {
+  transform: translateX(-100%);
+  opacity: 1;
+}
+
+.form-login-container .otheroptions {
+  padding-top: 10px;
+}
+
+.form-login-container .otheroptions h4 {
+  font-size: 1em;
+  font-weight: 500;
+  cursor: default;
+  text-align: center;
+}
+
+.form-login-container .otheroptions .socials {
+  width: 345px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-text {
+  cursor: default;
+  font-size: 2.5em;
+  padding: 20px 0 10px 0;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  height: 240px;
+  width: 250px;
+}
+
+form .input-box {
+  position: relative;
+}
+
+form .input-box label {
+  position: absolute;
+  top: 60%;
+  left: 0;
+
+  padding: 0 4px;
+  font-size: 1em;
+  font-weight: 400;
+  transition: .3s;
+  pointer-events: none;
+}
+
+form input:valid~label,
+form input:focus~label {
+  top: 0px;
+}
+
+form .input-box input {
+  width: 250px;
+  padding: 5px;
+  height: 30px;
+  margin-top: 10px;
+
+  background-color: transparent;
+  border: none;
+  padding-top: 30px;
+  font-size: 1.1em;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+form .input-box::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #fff;
+
+  position: absolute;
+  top: 98%;
+  left: 0;
+}
+
+form .remember-forget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 10px;
+  width: 100%;
+  font-size: .9em;
+}
+
+form .remember-forget label {
+  display: flex;
+  gap: 5px;
+}
+
+form .remember-forget a {
+  text-decoration: none;
+  color: #fff;
+  opacity: .8;
+}
+
+form .remember-forget a:hover,
+form .login-register a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+form .login-register a {
+  color: #fff;
+  text-decoration: none;
+  opacity: .8;
+}
+
+form button {
+  width: 135px;
+  height: 35px;
+
+  margin: 15px 0 10px 0;
+  padding: 4px 0;
+
+  font-size: 1.2em;
+  font-weight: 500;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+form button:hover {
+  box-shadow: 3px 3px 5px 0px #161616;
+}
+
+form button:focus {
+  background-color: #797979;
+  color: #fff;
+}
+
+
+.form-Register-container {
+  opacity: 0;
+  pointer-events: none;
+
+  height: 500px;
+  width: 340px;
+  color: rgb(199, 199, 199);
+
+  border: 3px solid white;
+  backdrop-filter: blur(30px);
+  border-radius: 15px;
+
+  transition: transform .1s ease-in;
+  position: absolute;
+  transform: translate(100%, -50%);
+  top: 50%;
+}
+
+.form-Register-container:hover {
+  box-shadow: 0 0 0 5px #5cffe8;
+}
+
+.form-Register-container.active {
+  opacity: 1;
+  pointer-events: all;
+  width: 345px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.form-Register-container form {
+  height: 305px;
+  transition: .3s;
+}
+
+form input {
+  caret-color: #ebeaea;
+}
+
+form .terms-updates {
+  padding-top: 10px;
+}
+
+.form-Register-container .social-logins {
+  margin-top: 20px;
+}
+
+.form-Register-container .social-logins h4 {
+  text-align: center;
+  cursor: default;
+}
+
+.form-Register-container .social-logins .socials {
+  display: flex;
+}
+
+.form-Register-container form .input-box::after {
+  background: #000;
+}
+
+.form-Register-container form a:hover {
+  color: #fff;
+  font-weight: 600;
+}
+
+.form-Register-container form input:valid~label,
+.form-Register-container form input:focus~label {
+  top: 0px;
+  opacity: 0;
+}

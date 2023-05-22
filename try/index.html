@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Logo</div>
+      <nav class="navigation">
+        <a href="#">Home</a>   
+        <a href="#">About</a>  
+        <a href="#">Contact</a>
+        <a href="#">Blogs</a>  
+        <button id="login-btn">Sign in</button>
+      </nav>
+    </header>
+      <div class="wrapper">
+        <div class="cross">
+        <i class="fa-brands fa-x"></i>
+        </div>
+        <div class="form-login-container ">
+          <h1 class="form-text">Login</h1>
+          <form action="#">
+            <div class="input-box">
+              <span class="icon">
+                <i class="fa-sharp fa-solid fa-envelope"></i></span>
+              <input type="text" required />
+              <label for="email">Email</label>
+            </div>
+            <div class="input-box">
+              <span class="icon">
+                <i class="fa-sharp fa-solid fa-lock"></i></span>
+              <input type="password" required />
+              <label for="Password">Password</label>
+            </div>
+            <div class="remember-forget">
+              <label><input type="checkbox" />Remember me</label>
+              <a href="#">Forgot password</a>
+            </div>
+            <button type="submit" class="btn-login">Login</button>
+            <div class="login-register">
+              <p>Don't have account? <a href="#" class="register">Sign in</a></p>
+            </div>
+          </form>
+          <div class="otheroptions">
+            <h4>Or login through</h3>
+              <ul class="socials">
+                <a href="#"><i class="fa-brands fa-google"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              </ul>
+          </div>
+        </div>
+
+
+        <div class="form-Register-container ">
+          <h1 class="form-text">Register</h1>
+          <form action="#">
+            <div class="input-box">
+              <span class="icon"><i class="fa-regular fa-user"></i></span>
+              <input type="text" required/>
+              <label for="username">Username:</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"> <i class="fa-sharp fa-solid fa-envelope"></i></span>
+              <input type="text" required />
+              <label for="email">Email:</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><i class="fa-solid fa-eye"></i></span>
+              <input type="Password" required />
+              <label for="email" class="pass1">Password:</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><i class="fa-solid fa-eye"></i></span>
+              <input type="Password" required />
+              <label for="email" class="pass2">Confirm Password:</label>
+            </div>
+            <div class="terms-updates">
+              <label>
+                <input type="checkbox" /> I agree to all the terms & condition
+              </label>
+              <br />
+              <label>
+                <input type="checkbox" id="updates" /> Get the latest news &
+                updates
+              </label>
+            </div>
+            <button type="submit" class="btn-login">Create account</button>
+            <div class="login-register">
+              <p>Already have an account? <a href="#" class="login">Log in</a></p>
+            </div>
+          </form>
+          <div class="social-logins">
+            <h4>or Sign-in through</h4>
+            <ul class="socials">
+              <a href="#"><i class="fa-brands fa-google"></i></a>
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-github"></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </body>
+
+  <script>
+    const wrapper = document.querySelector('.wrapper');
+    const loginForm = document.querySelector('.form-login-container');
+    const registerForm = document.querySelector('.form-Register-container');
+    const formBtn = document.getElementById('login-btn')
+
+    const signIn = document.querySelector('.register');
+    const loginIn = document.querySelector('.login');
+    const cross = document.querySelector('.cross')
+    const allInput = document.querySelectorAll('input')
+
+    signIn.addEventListener('click',()=>{
+      registerForm.classList.add("active");
+      loginForm.classList.add('inactive')
+      wrapper.classList.add('active')
+       formBtn.textContent='Login';
+    })
+    loginIn.addEventListener('click',()=>{
+      registerForm.classList.remove("active");
+      loginForm.classList.remove('inactive')
+      wrapper.classList.remove('active')
+       formBtn.textContent='Sign in';
+    })
+
+
+    formBtn.addEventListener('click',()=>{
+      const newText = 'Sign in'
+
+      if(formBtn.textContent==="Login"){
+        formBtn.textContent=newText;
+        wrapper.classList.remove('active')
+      }
+      else {
+        formBtn.textContent="Login"
+        wrapper.classList.add('active')
+      }
+      wrapper.style.scale=1;
+      registerForm.classList.toggle("active");
+      loginForm.classList.toggle('inactive')
+      
+    })
+
+    cross.addEventListener('click',()=>{
+     wrapper.style.scale=0;
+     allInput.textContent='';
+    })
+    toNext ()
+  </script>
+
+</html>
