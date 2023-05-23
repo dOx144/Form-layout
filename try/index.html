@@ -192,7 +192,40 @@
 
     toNext ()
   </script>
+<script>
+  const movableElement = document.querySelector('.wrapper');
+  let isDragging = false;
+  let initialX = 0;
+  let initialY = 0;
+  let offsetX = 0;
+  let offsetY = 0;
 
+  movableElement.addEventListener('mousedown', startDrag);
+  document.addEventListener('mouseup', endDrag);
+  document.addEventListener('mousemove', drag);
+
+  function startDrag(event) {
+    isDragging = true;
+    initialX = event.clientX;
+    initialY = event.clientY;
+    offsetX = movableElement.offsetLeft;
+    offsetY = movableElement.offsetTop;
+  }
+
+  function endDrag() {
+    isDragging = false;
+  }
+
+  function drag(event) {
+    if (isDragging) {
+      const deltaX = event.clientX - initialX;
+      const deltaY = event.clientY - initialY;
+      movableElement.style.left = offsetX + deltaX + 'px';
+      movableElement.style.top = offsetY + deltaY + 'px';
+    }
+  }
+
+</script>
 
 
 </html>
